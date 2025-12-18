@@ -1,0 +1,5 @@
+numenator=int(input("enter a number:"))
+denomenator=int(input("enter a number:"))
+result=numenator/denomenator
+print("result:",result)
+# print("error:denomenator cannot be zero")
