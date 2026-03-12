@@ -1,0 +1,17 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        h_len = len(haystack)
+        n_len = len(needle)
+        
+        # If needle is longer than haystack, it can't be found
+        if n_len > h_len:
+            return -1
+        
+        # Slide the window across the haystack
+        # We use +1 to ensure the last possible window is checked
+        for i in range(h_len - n_len + 1):
+            # Check if the slice matches the needle
+            if haystack[i : i + n_len] == needle:
+                return i
+                
+        return -1
