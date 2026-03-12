@@ -1,0 +1,20 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        result = []
+        
+        def backtrack(current_s, open_count, close_count):
+            # Base Case: If the string length is 2*n, we've used all brackets
+            if len(current_s) == 2 * n:
+                result.append(current_s)
+                return
+            
+            # Rule 1: Add an open parenthesis if we still have some left
+            if open_count < n:
+                backtrack(current_s + "(", open_count + 1, close_count)
+            
+            # Rule 2: Add a close parenthesis only if it won't break the balance
+            if close_count < open_count:
+                backtrack(current_s + ")", open_count, close_count + 1)
+        
+        backtrack("", 0, 0)
+        return result
